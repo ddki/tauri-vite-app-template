@@ -1,10 +1,15 @@
 #![cfg_attr(
-  all(not(debug_assertions), target_os = "windows"),
-  windows_subsystem = "windows"
+    all(not(debug_assertions), target_os = "windows"),
+    windows_subsystem = "windows"
 )]
 
+mod app_config;
+use crate::app_config::config_menu;
+
 fn main() {
-  tauri::Builder::default()
-    .run(tauri::generate_context!())
-    .expect("error while running tauri application");
+    let menu = config_menu::get_menu();
+    tauri::Builder::default()
+        .menu(menu)
+        .run(tauri::generate_context!())
+        .expect("error while running tauri application");
 }
