@@ -56,10 +56,24 @@
 		"windows": [
 			{
 				"fullscreen": false,
-				"height": 600,
+				"height": 800,
 				"resizable": true,
 				"title": "tauri-vite-app-demo",
-				"width": 800
+				"width": 1200
+			},
+			{
+				"label": "external",
+				"title": "Tauri Docs",
+				"url": "https://tauri.app",
+				"visible": false,
+				"shadow": true
+			},
+			{
+				"label": "local",
+				"title": "Tauri",
+				"url": "index.html",
+				"visible": false,
+				"shadow": true
 			}
 		]
 	}
