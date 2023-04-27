@@ -4,12 +4,19 @@
 )]
 
 mod app_config;
-use crate::app_config::config_menu;
+use crate::app_config::menu;
 
 fn main() {
-    let menu = config_menu::get_menu();
     tauri::Builder::default()
-        .menu(menu)
+        .invoke_handler(tauri::generate_handler![greet])
+        .menu(menu::build_menu())
+        .on_menu_event(menu::handle_menu_event)
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
+}
+
+#[tauri::command]
+fn greet(name: &str) -> String {
+    println!("arg = {}", name);
+    format!("Hello, {}!", name)
 }

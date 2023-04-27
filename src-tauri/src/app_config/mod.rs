@@ -1,1 +1,1 @@
-pub mod config_menu;
+pub mod menu;
