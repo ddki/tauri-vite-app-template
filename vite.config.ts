@@ -40,7 +40,14 @@ export default defineConfig(async () => {
 			// don't minify for debug builds
 			minify: !process.env.TAURI_DEBUG ? 'esbuild' : false,
 			// produce sourcemaps for debug builds
-			sourcemap: !!process.env.TAURI_DEBUG
+			sourcemap: !!process.env.TAURI_DEBUG,
+			rollupOptions: {
+				input: {
+					index: fileURLToPath(new URL('./public/index.html', import.meta.url)),
+					splashscreen: fileURLToPath(new URL('./public/splashscreen.html', import.meta.url))
+				},
+				output: {}
+			}
 		}
 	}
 })
