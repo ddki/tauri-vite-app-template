@@ -55,11 +55,22 @@
 		},
 		"windows": [
 			{
-				"fullscreen": false,
 				"height": 800,
+				"width": 1200,
+				"fullscreen": false,
+				"decorations": false,
+				"url": "splashscreen.html",
+				"label": "splashscreen",
+				"visible": false
+			},
+			{
+				"height": 800,
+				"width": 1200,
+				"fullscreen": false,
 				"resizable": true,
 				"title": "tauri-vite-app-demo",
-				"width": 1200
+				"label": "main",
+				"visible": true
 			},
 			{
 				"label": "external",

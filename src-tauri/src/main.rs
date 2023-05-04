@@ -14,7 +14,7 @@ struct Payload {
 }
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![greet])
+        .invoke_handler(tauri::generate_handler![greet, close_splashscreen])
         .menu(menu::build_menu())
         .on_menu_event(menu::handle_menu_event)
         .setup(|app| {
@@ -34,21 +34,21 @@ fn main() {
                 },
             )
             .unwrap();
-            let external = app.get_window("external").unwrap();
-            external.set_cursor_visible(true).unwrap();
-            let _docs_window = tauri::WindowBuilder::new(
-                app,
-                "github", /* the unique window label */
-                tauri::WindowUrl::External("https://github.com/".parse().unwrap()),
-            )
-            .build()
-            .expect("failed to build window");
-            let _local_window = tauri::WindowBuilder::new(
-                app,
-                "local-new",
-                tauri::WindowUrl::App("index.html".into()),
-            )
-            .build()?;
+            // let external = app.get_window("external").unwrap();
+            // external.set_cursor_visible(true).unwrap();
+            // let _docs_window = tauri::WindowBuilder::new(
+            //     app,
+            //     "github", /* the unique window label */
+            //     tauri::WindowUrl::External("https://github.com/".parse().unwrap()),
+            // )
+            // .build()
+            // .expect("failed to build window");
+            // let _local_window = tauri::WindowBuilder::new(
+            //     app,
+            //     "local-new",
+            //     tauri::WindowUrl::App("index.html".into()),
+            // )
+            // .build()?;
             Ok(())
         })
         .run(tauri::generate_context!())
@@ -59,4 +59,15 @@ fn main() {
 fn greet(name: &str) -> String {
     println!("arg = {}", name);
     format!("Hello, {}!", name)
+}
+
+#[tauri::command]
+async fn close_splashscreen(window: tauri::Window) {
+    println!("close-splashscreen");
+    // Close splashscreen
+    if let Some(splashscreen) = window.get_window("splashscreen") {
+        splashscreen.close().unwrap();
+    }
+    // Show main window
+    window.get_window("main").unwrap().show().unwrap();
 }

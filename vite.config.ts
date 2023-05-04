@@ -43,8 +43,7 @@ export default defineConfig(async () => {
 			sourcemap: !!process.env.TAURI_DEBUG,
 			rollupOptions: {
 				input: {
-					index: fileURLToPath(new URL('./public/index.html', import.meta.url)),
-					splashscreen: fileURLToPath(new URL('./public/splashscreen.html', import.meta.url))
+					index: fileURLToPath(new URL('./public/index.html', import.meta.url))
 				},
 				output: {}
 			}
