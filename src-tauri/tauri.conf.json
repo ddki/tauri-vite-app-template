@@ -79,15 +79,8 @@
 				"visible": true
 			},
 			{
-				"label": "external",
-				"title": "Tauri Docs",
-				"url": "https://tauri.app",
-				"visible": false,
-				"shadow": true
-			},
-			{
-				"label": "local",
-				"title": "Tauri",
+				"label": "wiki",
+				"title": "wiki",
 				"url": "index.html",
 				"visible": false,
 				"shadow": true
