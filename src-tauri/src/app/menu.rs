@@ -1,14 +1,13 @@
 use tauri::{CustomMenuItem, Menu, MenuItem, Submenu, WindowMenuEvent};
 
 pub fn build_menu() -> Menu {
-    // here `"quit".to_string()` defines the menu item id, and the second parameter is the menu item label.
-    let quit = CustomMenuItem::new("quit".to_string(), "Quit");
-    let close = CustomMenuItem::new("close".to_string(), "Close");
-    let submenu = Submenu::new("File", Menu::new().add_item(quit).add_item(close));
+    let setting = CustomMenuItem::new("setting", "设置");
+    let about = about_menu();
+
     Menu::new()
-        .add_native_item(MenuItem::Copy)
-        .add_item(CustomMenuItem::new("hide", "Hide"))
-        .add_submenu(submenu)
+        .add_item(setting)
+        .add_submenu(about)
+        .add_native_item(MenuItem::Quit)
 }
 
 pub fn handle_menu_event(event: WindowMenuEvent) {
@@ -21,4 +20,16 @@ pub fn handle_menu_event(event: WindowMenuEvent) {
         }
         _ => {}
     }
+}
+
+fn about_menu() -> Submenu {
+    Submenu::new(
+        "关于",
+        Menu::new()
+            .add_item(CustomMenuItem::new("about", "关于"))
+            .add_item(CustomMenuItem::new("wiki", "文档"))
+            .add_item(CustomMenuItem::new("issues", "Issues"))
+            .add_item(CustomMenuItem::new("github", "Github"))
+            .add_item(CustomMenuItem::new("checkUpdate", "检查更新")),
+    )
 }
