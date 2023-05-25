@@ -15,6 +15,9 @@ struct Payload {
 }
 fn main() {
     tauri::Builder::default()
+        .plugin(tauri_plugin_dialog::init())
+        .plugin(tauri_plugin_shell::init())
+        .plugin(tauri_plugin_window::init())
         .system_tray(app::system_tray::build())
         .on_system_tray_event(app::system_tray::handle_menu_event)
         .invoke_handler(tauri::generate_handler![
@@ -24,6 +27,8 @@ fn main() {
         .menu(menu::build_menu())
         .on_menu_event(|event: WindowMenuEvent| menu::handle_menu_event(event))
         .setup(|app| {
+            let main_window = app.get_window("main").unwrap();
+            main_window.close_devtools();
             // listen to the `event-name` (emitted on any window)
             let id = app.listen_global("listen_global", |event| {
                 println!("got click with payload {:?}", event.payload());
@@ -40,21 +45,6 @@ fn main() {
                 },
             )
             .unwrap();
-            // let external = app.get_window("external").unwrap();
-            // external.set_cursor_visible(true).unwrap();
-            // let _docs_window = tauri::WindowBuilder::new(
-            //     app,
-            //     "github", /* the unique window label */
-            //     tauri::WindowUrl::External("https://github.com/".parse().unwrap()),
-            // )
-            // .build()
-            // .expect("failed to build window");
-            // let _local_window = tauri::WindowBuilder::new(
-            //     app,
-            //     "local-new",
-            //     tauri::WindowUrl::App("index.html".into()),
-            // )
-            // .build()?;
             Ok(())
         })
         // 保持前端在后台运行，以实现系统托盘左击显示窗口

@@ -1,4 +1,4 @@
-use tauri::{AppHandle, CustomMenuItem, Manager, Menu, MenuItem, Submenu, WindowMenuEvent};
+use tauri::{CustomMenuItem, Manager, Menu, MenuItem, Submenu, WindowMenuEvent};
 
 pub fn build_menu() -> Menu {
     let setting = CustomMenuItem::new("setting", "设置");
@@ -12,21 +12,28 @@ pub fn build_menu() -> Menu {
 
 pub fn handle_menu_event(event: WindowMenuEvent) {
     match event.menu_item_id() {
-        "setting" => super::window::open_setting(event.window().app_handle()),
+        "setting" => {
+            // todo 使用event方式由前端实现
+            if !webbrowser::open("#/setting").is_ok() {
+                print!("打开失败")
+            }
+        }
         "about" => {
-            super::window::open_about(event.window().app_handle());
+            let window = event.window().get_window("main").unwrap();
+            super::window::open_window(window, "about");
         }
         "wiki" => {
-            println!("wiki...");
+            let window = event.window().get_window("main").unwrap();
+            super::window::open_window(window, "wiki");
         }
         "issues" => {
             if !webbrowser::open("https://github.com/ddki/tauri-vite-app-demo/issues").is_ok() {
-                print!("打开失败")
+                print!("打开失败");
             }
         }
         "github" => {
             if !webbrowser::open("https://github.com/ddki/tauri-vite-app-demo").is_ok() {
-                print!("打开失败")
+                print!("打开失败");
             }
         }
         "check_update" => {

@@ -43,7 +43,8 @@ pub fn handle_menu_event(app: &AppHandle, event: SystemTrayEvent) {
                 super::window::open_about(window.app_handle());
             }
             "wiki" => {
-                println!("wiki...");
+                let window: tauri::Window = app.get_window("main").unwrap();
+                super::window::open_wiki(window.app_handle());
             }
             "issues" => {
                 if !webbrowser::open("https://github.com/ddki/tauri-vite-app-demo/issues").is_ok() {

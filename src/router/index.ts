@@ -1,8 +1,8 @@
-import { createRouter, createWebHistory, type RouteLocationRaw } from 'vue-router'
+import { createRouter, createWebHashHistory, type RouteLocationRaw } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
-	history: createWebHistory(import.meta.env.BASE_URL),
+	history: createWebHashHistory(import.meta.env.BASE_URL),
 	routes: [
 		{
 			path: '/',
@@ -21,6 +21,11 @@ const router = createRouter({
 			path: '/setting',
 			name: 'setting',
 			component: () => import('../views/SettingView.vue')
+		},
+		{
+			path: '/wiki',
+			name: 'wiki',
+			component: () => import('../views/WikiView.vue')
 		}
 	]
 })

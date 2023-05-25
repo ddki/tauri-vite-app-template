@@ -11,9 +11,6 @@
 		"version": "0.1.0"
 	},
 	"tauri": {
-		"allowlist": {
-			"all": false
-		},
 		"bundle": {
 			"active": true,
 			"category": "DeveloperTool",
@@ -56,9 +53,6 @@
 		"security": {
 			"csp": null
 		},
-		"updater": {
-			"active": false
-		},
 		"windows": [
 			{
 				"height": 800,
@@ -78,11 +72,34 @@
 				"visible": false
 			},
 			{
-				"label": "wiki",
-				"title": "wiki",
-				"url": "index.html",
+				"height": 800,
+				"width": 1200,
+				"fullscreen": false,
+				"resizable": true,
+				"title": "设置",
+				"label": "setting",
 				"visible": false,
-				"shadow": true
+				"url": "#/setting"
+			},
+			{
+				"height": 800,
+				"width": 1200,
+				"fullscreen": false,
+				"resizable": true,
+				"title": "文档",
+				"label": "wiki",
+				"visible": false,
+				"url": "#/wiki"
+			},
+			{
+				"height": 800,
+				"width": 1200,
+				"fullscreen": false,
+				"resizable": true,
+				"title": "关于",
+				"label": "about",
+				"visible": false,
+				"url": "#/about"
 			}
 		],
 		"systemTray": {
