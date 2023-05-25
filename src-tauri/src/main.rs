@@ -4,7 +4,8 @@
 )]
 
 mod app;
-use tauri::Manager;
+pub mod utils;
+use tauri::{Manager, WindowMenuEvent};
 
 use crate::app::menu;
 
@@ -14,9 +15,14 @@ struct Payload {
 }
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![greet, close_splashscreen])
+        .system_tray(app::system_tray::build())
+        .on_system_tray_event(app::system_tray::handle_menu_event)
+        .invoke_handler(tauri::generate_handler![
+            app::event::greet,
+            app::window::close_splashscreen
+        ])
         .menu(menu::build_menu())
-        .on_menu_event(menu::handle_menu_event)
+        .on_menu_event(|event: WindowMenuEvent| menu::handle_menu_event(event))
         .setup(|app| {
             // listen to the `event-name` (emitted on any window)
             let id = app.listen_global("listen_global", |event| {
@@ -51,23 +57,21 @@ fn main() {
             // .build()?;
             Ok(())
         })
-        .run(tauri::generate_context!())
-        .expect("error while running tauri application");
-}
-
-#[tauri::command]
-fn greet(name: &str) -> String {
-    println!("arg = {}", name);
-    format!("Hello, {}!", name)
-}
-
-#[tauri::command]
-async fn close_splashscreen(window: tauri::Window) {
-    println!("close-splashscreen");
-    // Close splashscreen
-    if let Some(splashscreen) = window.get_window("splashscreen") {
-        splashscreen.close().unwrap();
-    }
-    // Show main window
-    window.get_window("main").unwrap().show().unwrap();
+        // 保持前端在后台运行，以实现系统托盘左击显示窗口
+        .on_window_event(|event| match event.event() {
+            tauri::WindowEvent::CloseRequested { api, .. } => {
+                event.window().hide().unwrap();
+                api.prevent_close();
+            }
+            _ => {}
+        })
+        .build(tauri::generate_context!())
+        .expect("error while running tauri application")
+        // 保持后端在后台运行
+        .run(|_app_handle, event| match event {
+            tauri::RunEvent::ExitRequested { api, .. } => {
+                api.prevent_exit();
+            }
+            _ => {}
+        });
 }

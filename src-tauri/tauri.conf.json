@@ -66,8 +66,7 @@
 				"fullscreen": false,
 				"decorations": false,
 				"url": "splashscreen.html",
-				"label": "splashscreen",
-				"visible": false
+				"label": "splashscreen"
 			},
 			{
 				"height": 800,
@@ -76,7 +75,7 @@
 				"resizable": true,
 				"title": "tauri-vite-app-demo",
 				"label": "main",
-				"visible": true
+				"visible": false
 			},
 			{
 				"label": "wiki",
@@ -85,6 +84,10 @@
 				"visible": false,
 				"shadow": true
 			}
-		]
+		],
+		"systemTray": {
+			"iconPath": "icons/icon.png",
+			"iconAsTemplate": true
+		}
 	}
 }

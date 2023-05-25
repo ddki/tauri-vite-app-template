@@ -1,5 +1,4 @@
-use tauri::{CustomMenuItem, Menu, MenuItem, Submenu, WindowMenuEvent};
-use webbrowser;
+use tauri::{AppHandle, CustomMenuItem, Manager, Menu, MenuItem, Submenu, WindowMenuEvent};
 
 pub fn build_menu() -> Menu {
     let setting = CustomMenuItem::new("setting", "设置");
@@ -13,11 +12,9 @@ pub fn build_menu() -> Menu {
 
 pub fn handle_menu_event(event: WindowMenuEvent) {
     match event.menu_item_id() {
-        "setting" => {
-            println!("setting...");
-        }
+        "setting" => super::window::open_setting(event.window().app_handle()),
         "about" => {
-            println!("about...");
+            super::window::open_about(event.window().app_handle());
         }
         "wiki" => {
             println!("wiki...");
