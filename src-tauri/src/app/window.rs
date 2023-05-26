@@ -11,16 +11,6 @@ pub async fn close_splashscreen(window: tauri::Window) {
     window.get_window("main").unwrap().show().unwrap();
 }
 
-pub fn open_setting(app: AppHandle) {
-    println!("open_setting...");
-    let windows = app.windows();
-    let setting_window = windows.get("setting");
-    match setting_window {
-        Some(setting_window) => setting_window.show().unwrap(),
-        None => crate::utils::create_window(app, "setting", "设置", "#/setting", Menu::default()),
-    }
-}
-
 pub fn open_about(app: AppHandle) {
     println!("open_about...");
     let windows = app.windows();

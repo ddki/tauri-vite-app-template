@@ -34,16 +34,22 @@ pub fn handle_menu_event(app: &AppHandle, event: SystemTrayEvent) {
             println!("system tray received a double click");
         }
         SystemTrayEvent::MenuItemClick { id, .. } => match id.as_str() {
+            "main" => {
+                let window: tauri::Window = app.get_window("main").unwrap();
+                window.eval("window.location.replace('#/')").unwrap();
+            }
             "setting" => {
                 let window: tauri::Window = app.get_window("main").unwrap();
-                super::window::open_setting(window.app_handle());
+                window.eval("window.location.replace('#/setting')").unwrap();
             }
             "about" => {
                 let window: tauri::Window = app.get_window("main").unwrap();
+                window.menu_handle().hide().unwrap();
                 super::window::open_about(window.app_handle());
             }
             "wiki" => {
                 let window: tauri::Window = app.get_window("main").unwrap();
+                window.menu_handle().hide().unwrap();
                 super::window::open_wiki(window.app_handle());
             }
             "issues" => {
@@ -69,6 +75,7 @@ pub fn handle_menu_event(app: &AppHandle, event: SystemTrayEvent) {
 }
 
 fn build_menu() -> SystemTrayMenu {
+    let main = CustomMenuItem::new("main", "主页");
     let setting = CustomMenuItem::new("setting".to_string(), "设置");
     let about = SystemTraySubmenu::new(
         "关于",
@@ -80,15 +87,14 @@ fn build_menu() -> SystemTrayMenu {
     );
 
     let check_update = CustomMenuItem::new("check_update", "检查更新");
-    let show = CustomMenuItem::new("show".to_string(), "Show");
     let quit = CustomMenuItem::new("quit".to_string(), "Quit");
 
     let tray_menu: SystemTrayMenu = SystemTrayMenu::new()
+        .add_item(main)
         .add_item(setting)
         .add_submenu(about)
         .add_item(check_update)
         .add_native_item(SystemTrayMenuItem::Separator)
-        .add_item(show)
         .add_item(quit);
     return tray_menu;
 }

@@ -60,7 +60,8 @@
 				"fullscreen": false,
 				"decorations": false,
 				"url": "splashscreen.html",
-				"label": "splashscreen"
+				"label": "splashscreen",
+				"center": true
 			},
 			{
 				"height": 800,
@@ -69,7 +70,10 @@
 				"resizable": true,
 				"title": "tauri-vite-app-demo",
 				"label": "main",
-				"visible": false
+				"visible": false,
+				"center": true,
+				"focus": true,
+				"shadow": true
 			},
 			{
 				"height": 800,
