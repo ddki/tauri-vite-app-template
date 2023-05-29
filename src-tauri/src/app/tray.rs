@@ -2,6 +2,7 @@ use tauri::{
     AppHandle, CustomMenuItem, Manager, SystemTray, SystemTrayEvent, SystemTrayMenu,
     SystemTrayMenuItem, SystemTraySubmenu,
 };
+use tauri_plugin_shell::ShellExt;
 
 pub fn build() -> SystemTray {
     SystemTray::new().with_menu(build_menu())
@@ -53,14 +54,18 @@ pub fn handle_menu_event(app: &AppHandle, event: SystemTrayEvent) {
                 super::window::open_wiki(window.app_handle());
             }
             "issues" => {
-                if !webbrowser::open("https://github.com/ddki/tauri-vite-app-demo/issues").is_ok() {
-                    print!("打开失败")
-                }
+                app.get_window("main")
+                    .unwrap()
+                    .shell()
+                    .open("https://github.com/ddki/tauri-vite-app-demo/issues", None)
+                    .unwrap();
             }
             "github" => {
-                if !webbrowser::open("https://github.com/ddki/tauri-vite-app-demo").is_ok() {
-                    print!("打开失败")
-                }
+                app.get_window("main")
+                    .unwrap()
+                    .shell()
+                    .open("https://github.com/ddki/tauri-vite-app-demo", None)
+                    .unwrap();
             }
             "check_update" => {
                 println!("check_update...");

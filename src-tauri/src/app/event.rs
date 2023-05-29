@@ -11,6 +11,14 @@ struct Payload {
     message: String,
 }
 
+#[derive(Clone, serde::Serialize)]
+struct Setting {
+    user: String,
+}
+
+// #[tauri::command]
+// pub fn save_setting(setting: Setting) -> String {}
+
 pub fn build_app_event(app: AppHandle) {
     // listen to the `event-name` (emitted on any window)
     let id = app.listen_global("listen_global", |event| {

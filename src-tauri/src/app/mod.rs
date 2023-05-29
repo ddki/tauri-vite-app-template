@@ -1,4 +1,5 @@
 pub mod event;
 pub mod menu;
-pub mod system_tray;
+pub mod tray;
+pub mod updater;
 pub mod window;

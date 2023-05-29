@@ -1,4 +1,5 @@
 use tauri::{CustomMenuItem, Manager, Menu, MenuItem, Submenu, WindowMenuEvent};
+use tauri_plugin_shell::ShellExt;
 
 pub fn build_menu() -> Menu {
     let main = CustomMenuItem::new("main", "主页");
@@ -32,14 +33,19 @@ pub fn handle_menu_event(event: WindowMenuEvent) {
             super::window::open_window(window, "wiki");
         }
         "issues" => {
-            if !webbrowser::open("https://github.com/ddki/tauri-vite-app-demo/issues").is_ok() {
-                print!("打开失败");
-            }
+            event
+                .window()
+                .shell()
+                // None 使用默认程序打开
+                .open("https://github.com/ddki/tauri-vite-app-demo/issues", None)
+                .unwrap();
         }
         "github" => {
-            if !webbrowser::open("https://github.com/ddki/tauri-vite-app-demo").is_ok() {
-                print!("打开失败");
-            }
+            event
+                .window()
+                .shell()
+                .open("https://github.com/ddki/tauri-vite-app-demo", None)
+                .unwrap();
         }
         "check_update" => {
             println!("check_update...");
@@ -56,6 +62,44 @@ pub fn handle_menu_event(event: WindowMenuEvent) {
             .app_handle()
             .emit_all("fontGrobalListenEvent", "rust 调用 vue")
             .unwrap(),
+        "dialog_1" => {
+            tauri_plugin_dialog::DialogExt::dialog(&event.window().app_handle())
+                .message("我是弹窗-1")
+                .blocking_show();
+        }
+        "dialog_2" => {
+            tauri_plugin_dialog::DialogExt::dialog(&event.window().app_handle())
+                .message("我是弹窗-2-Error")
+                .kind(tauri_plugin_dialog::MessageDialogKind::Error)
+                .blocking_show();
+        }
+        "dialog_3" => {
+            tauri_plugin_dialog::DialogExt::dialog(&event.window().app_handle())
+                .message("我是弹窗-3-Info")
+                .kind(tauri_plugin_dialog::MessageDialogKind::Info)
+                .blocking_show();
+        }
+        "dialog_4" => {
+            tauri_plugin_dialog::DialogExt::dialog(&event.window().app_handle())
+                .message("我是弹窗-4-Warning")
+                .kind(tauri_plugin_dialog::MessageDialogKind::Warning)
+                .blocking_show();
+        }
+        "dialog_5" => {
+            tauri_plugin_dialog::DialogExt::dialog(&event.window().app_handle())
+                .message("我是弹窗-5-default")
+                .kind(tauri_plugin_dialog::MessageDialogKind::default())
+                .blocking_show();
+        }
+        "dialog_6" => {
+            tauri_plugin_dialog::DialogExt::dialog(&event.window().app_handle())
+                .message("我是弹窗-6-button")
+                .kind(tauri_plugin_dialog::MessageDialogKind::default())
+                .cancel_button_label("取消")
+                .ok_button_label("确定")
+                .title("我是弹窗标题")
+                .blocking_show();
+        }
         _ => {}
     }
 }
@@ -73,8 +117,19 @@ fn about_menu() -> Submenu {
 }
 
 fn example_menu() -> Submenu {
-    Submenu::new(
-        "例子",
+    let event = Submenu::new(
+        "事件",
         Menu::new().add_item(CustomMenuItem::new("call_font", "调用前端")),
-    )
+    );
+    let dialog = Submenu::new(
+        "弹窗",
+        Menu::new()
+            .add_item(CustomMenuItem::new("dialog_1", "弹窗-1"))
+            .add_item(CustomMenuItem::new("dialog_2", "弹窗-2-Error"))
+            .add_item(CustomMenuItem::new("dialog_3", "弹窗-3-Info"))
+            .add_item(CustomMenuItem::new("dialog_4", "弹窗-4-Warning"))
+            .add_item(CustomMenuItem::new("dialog_5", "弹窗-5-default"))
+            .add_item(CustomMenuItem::new("dialog_6", "弹窗-6-button")),
+    );
+    Submenu::new("例子", Menu::new().add_submenu(event).add_submenu(dialog))
 }

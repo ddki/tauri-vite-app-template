@@ -11,8 +11,8 @@ fn main() {
     tauri::Builder::default()
         .plugin(tauri_plugin_dialog::init())
         .plugin(tauri_plugin_shell::init())
-        .system_tray(crate::app::system_tray::build())
-        .on_system_tray_event(app::system_tray::handle_menu_event)
+        .system_tray(crate::app::tray::build())
+        .on_system_tray_event(crate::app::tray::handle_menu_event)
         .invoke_handler(tauri::generate_handler![
             crate::app::event::greet,
             crate::app::window::close_splashscreen
