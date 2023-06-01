@@ -1,9 +1,9 @@
-name: 'release'
+name: Release
 
 on:
-	push:
-		tags:
-			- 'v*'
+  push:
+    tags:
+      - "v*"
 
 jobs:
   create-release:
@@ -22,23 +22,23 @@ jobs:
           node-version: 19
 
       - name: get app info
-				# 版本号
+        # 版本号
         run: echo "app_version=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
-				# 应用名称
-				run: echo "app_name=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
+        # 应用名称
+        run: echo "app_name=$(node -p "require('./package.json').version")" >> $GITHUB_ENV
 
-			- name: create release
-				id: create-release
-				uses: ncipollo/release-action@v1
-				with:
-					owner: ${{ github.actor }}
-					# 发布的可选标签。 如果省略，将使用 git ref （如果它是标签）。
-					tag: "app-v ${{ env.app_version }}",
-					name: "${{ env.app_name }} v${{ env.app_version }}",
-					# 可选择将此版本标记为草稿版本。 设置为 true 以启用。
-					draft: true,
-					# 发布的可选正文文件。 这应该是文件的路径。
-					bodyFile: "UPDATE_LOG.md"
+      - name: create release
+        id: create-release
+        uses: ncipollo/release-action@v1
+        with:
+          owner: ${{ github.actor }}
+          # 发布的可选标签。 如果省略，将使用 git ref （如果它是标签）。
+          tag: "app-v ${{ env.app_version }}",
+          name: "${{ env.app_name }} v${{ env.app_version }}",
+          # 可选择将此版本标记为草稿版本。 设置为 true 以启用。
+          draft: true,
+          # 发布的可选正文文件。 这应该是文件的路径。
+          bodyFile: "UPDATE_LOG.md"
 
   build-tauri:
     needs: create-release
@@ -67,8 +67,8 @@ jobs:
         with:
           node-version: 19
 
-			# pnpm 并使用缓存安装包
-			- uses: pnpm/action-setup@v2
+      # pnpm 并使用缓存安装包
+      - uses: pnpm/action-setup@v2
         name: Install pnpm
         id: pnpm-install
         with:
@@ -97,7 +97,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           releaseId: ${{ needs.create-release.outputs.id }}
-					updaterJsonPreferNsis: true
+          updaterJsonPreferNsis: true
 
   publish-release:
     permissions:

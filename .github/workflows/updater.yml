@@ -1,5 +1,4 @@
 name: Updater CI
-run name: Release update.json
 
 on:
   release:
@@ -36,7 +35,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-			- name: Setup Node
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 19.x.x
