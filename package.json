@@ -33,6 +33,7 @@
 		"@actions/github": "^5.1.1",
 		"@commitlint/cli": "^17.6.1",
 		"@commitlint/config-conventional": "^17.6.1",
+		"@commitlint/cz-commitlint": "^17.5.0",
 		"@playwright/test": "^1.31.1",
 		"@rushstack/eslint-patch": "^1.2.0",
 		"@tauri-apps/api": "2.0.0-alpha.4",
@@ -51,6 +52,7 @@
 		"eslint": "^8.34.0",
 		"eslint-plugin-vue": "^9.9.0",
 		"husky": "^8.0.3",
+		"inquirer": "8",
 		"internal-ip": "^7.0.0",
 		"jsdom": "^21.1.0",
 		"kleur": "^4.1.5",
@@ -72,7 +74,7 @@
 	},
 	"config": {
 		"commitizen": {
-			"path": "cz-conventional-changelog"
+			"path": "@commitlint/cz-commitlint"
 		}
 	},
 	"lint-staged": {
