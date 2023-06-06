@@ -23,7 +23,8 @@
 		"reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json && rimraf node_modules && pnpm install",
 		"publish": "node scripts/publish.ts",
 		"commit": "commit",
-		"changelog": "conventional-changelog -p angular -i CHANGE_LOG.md -s"
+		"changelog": "conventional-changelog -p angular -i CHANGE_LOG.md -s",
+		"version": "tsc scripts/version.ts"
 	},
 	"dependencies": {
 		"pinia": "^2.0.32",

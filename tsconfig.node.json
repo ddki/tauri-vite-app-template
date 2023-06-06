@@ -4,6 +4,8 @@
 	"compilerOptions": {
 		"module": "ESNext",
 		"moduleResolution": "node",
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
 		"composite": true,
 		"types": ["node"]
 	}

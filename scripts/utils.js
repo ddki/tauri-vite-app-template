@@ -1,0 +1,22 @@
+"use strict";
+exports.__esModule = true;
+exports.relativePath = exports.tauriConfJSON = exports.packageJSON = exports.RELEASE_YML_PATH = exports.UPDATER_JSON_PATH = exports.TAURI_CONF_PATH = exports.UPDATE_LOG_PATH = exports.PACKAGE_PATH = exports.ROOT_PATH = exports.$argv = exports.require = void 0;
+var path_1 = require("path");
+var minimist_1 = require("minimist");
+var module_1 = require("module");
+exports.require = (0, module_1.createRequire)(import.meta.url);
+var $argv = function () { return (0, minimist_1["default"])(process.argv.slice(2)); };
+exports.$argv = $argv;
+// file
+exports.ROOT_PATH = process.cwd();
+exports.PACKAGE_PATH = path_1["default"].join(exports.ROOT_PATH, 'package.json');
+exports.UPDATE_LOG_PATH = path_1["default"].join(exports.ROOT_PATH, 'UPDATE_LOG.md');
+exports.TAURI_CONF_PATH = path_1["default"].join(exports.ROOT_PATH, 'src-tauri', 'tauri.conf.json');
+exports.UPDATER_JSON_PATH = path_1["default"].join(exports.ROOT_PATH, 'updater', 'install.json');
+exports.RELEASE_YML_PATH = path_1["default"].join(exports.ROOT_PATH, '.github', 'workflows', 'release.yml');
+var packageJSON = function () { return (0, exports.require)(exports.PACKAGE_PATH); };
+exports.packageJSON = packageJSON;
+var tauriConfJSON = function () { return (0, exports.require)(exports.TAURI_CONF_PATH); };
+exports.tauriConfJSON = tauriConfJSON;
+var relativePath = function (p) { var _a; return "".concat((_a = p.split(exports.ROOT_PATH)) === null || _a === void 0 ? void 0 : _a[1].substring(1)) || ''; };
+exports.relativePath = relativePath;
