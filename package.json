@@ -74,7 +74,7 @@
 	},
 	"config": {
 		"commitizen": {
-			"path": "@commitlint/cz-commitlint"
+			"path": "./node_modules/@commitlint/cz-commitlint"
 		}
 	},
 	"lint-staged": {
