@@ -17,7 +17,7 @@ const Configuration: UserConfig = {
 				'fix', // 修复bug
 				'docs', //文档注释
 				'style', // 代码格式(不影响代码运行的变动)
-				'regactor', // 重构(既不是增加feature，也不是修复bug)
+				'refactor', // 重构(既不是增加feature，也不是修复bug)
 				'perf', // 性能优化
 				'test', // 增加测试
 				'chore', // 构建过程或辅助工具的变更
@@ -40,95 +40,94 @@ const Configuration: UserConfig = {
 		},
 		questions: {
 			type: {
-				description: "Select the type of change that you're committing:",
+				description: '请选择提交类型:',
 				enum: {
 					feat: {
-						description: 'A new feature',
-						title: 'Features',
+						description: '新功能、新特性',
+						title: '新功能',
 						emoji: '✨'
 					},
 					fix: {
-						description: 'A bug fix',
-						title: 'Bug Fixes',
+						description: '修复Bug',
+						title: '修复Bug',
 						emoji: '🐛'
 					},
 					docs: {
-						description: 'Documentation only changes',
-						title: 'Documentation',
+						description: '文档变更',
+						title: '文档',
 						emoji: '📚'
 					},
 					style: {
-						description:
-							'Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)',
-						title: 'Styles',
+						description: '代码格式(不影响代码运行的变动)',
+						title: '格式',
 						emoji: '💎'
 					},
 					refactor: {
-						description: 'A code change that neither fixes a bug nor adds a feature',
-						title: 'Code Refactoring',
+						description: '重构(既不是增加feature，也不是修复bug)',
+						title: '重构',
 						emoji: '📦'
 					},
 					perf: {
-						description: 'A code change that improves performance',
-						title: 'Performance Improvements',
+						description: '性能优化',
+						title: '性能优化',
 						emoji: '🚀'
 					},
 					test: {
-						description: 'Adding missing tests or correcting existing tests',
-						title: 'Tests',
+						description: '增加测试活着改正现有测试',
+						title: '测试',
 						emoji: '🚨'
 					},
 					build: {
-						description:
-							'Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)',
+						description: '更改打包工具或者外部依赖项',
 						title: 'Builds',
 						emoji: '🛠'
 					},
 					ci: {
-						description:
-							'Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)',
-						title: 'Continuous Integrations',
+						description: '更改CI配置文件或者脚本',
+						title: 'CI',
 						emoji: '⚙️'
 					},
 					chore: {
-						description: "Other changes that don't modify src or test files",
+						description: '其他变更，不修改src和test文件',
 						title: 'Chores',
 						emoji: '♻️'
 					},
 					revert: {
-						description: 'Reverts a previous commit',
+						description: '回退上一个提交',
 						title: 'Reverts',
 						emoji: '🗑'
 					}
 				}
 			},
+			header: {
+				description: '输入header'
+			},
 			scope: {
-				description: 'What is the scope of this change (e.g. component or file name)'
+				description: '本次更改的范围：(e.g. component or file name)'
 			},
 			subject: {
-				description: 'Write a short, imperative tense description of the change'
+				description: '写一个简短的、命令式的变化描述'
 			},
 			body: {
-				description: 'Provide a longer description of the change'
+				description: '提供一个较长的变化描述'
 			},
 			isBreaking: {
-				description: 'Are there any breaking changes?'
+				description: '是否有任何突破性变化？'
 			},
 			breakingBody: {
-				description: 'A BREAKING CHANGE commit requires a body. Please enter a longer description of the commit itself'
+				description: '一个BREAKING CHANGE的提交需要一个正文。请输入对该提交本身的较长描述'
 			},
 			breaking: {
-				description: 'Describe the breaking changes'
+				description: '描述突破性的变化'
 			},
 			isIssueAffected: {
-				description: 'Does this change affect any open issues?'
+				description: '这一变化是否影响到任何未解决的 issue？'
 			},
 			issuesBody: {
-				description:
-					'If issues are closed, the commit requires a body. Please enter a longer description of the commit itself'
+				description: '如果 issue 被关闭，提交需要一个正文。请输入对该提交本身的较长描述'
 			},
 			issues: {
-				description: 'Add issue references (e.g. "fix #123", "re #123".)'
+				description: '添加 issue 引用 (e.g. "fix #123", "re #123".)'
 			}
 		}
 	}
