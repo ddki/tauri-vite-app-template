@@ -4,8 +4,15 @@ import { RuleConfigSeverity } from '@commitlint/types'
 const Configuration: UserConfig = {
 	// 继承的规则
 	extends: ['@commitlint/config-conventional'],
+	// parserPreset: {
+	// 	parserOpts: {
+	// 		headerPattern: /^(:\w*:)(?:\s)(?:\((.*?)\))?\s((?:.*(?=\())|.*)(?:\(#(\d*)\))?/,
+	// 		headerCorrespondence: ['type', 'scope', 'subject', 'ticket']
+	// 	}
+	// },
 	// 定义规则类型
 	rules: {
+		// 'start-with-gitmoji': [2, 'always'],
 		'body-leading-blank': [2, 'always'], // body换行
 		'header-max-length': [2, 'never', 72], // header 最长72
 		// type类型定义，表示git提交的 type 必须在以下类型范围内

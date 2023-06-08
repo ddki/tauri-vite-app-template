@@ -1,0 +1,113 @@
+{
+	"path": "./node_modules/@commitlint/cz-commitlint",
+	"config": {
+		"cz-emoji": {
+			// 是否允许使用 unicode 而不是默认的 gitmoji, 默认false
+			"symbol": false,
+			"scopes": [
+				"feat", // 新功能
+				"fix", // 修复bug
+				"docs", //文档注释
+				"style", // 代码格式(不影响代码运行的变动)
+				"refactor", // 重构(既不是增加feature，也不是修复bug)
+				"perf", // 性能优化
+				"test", // 增加测试
+				"revert", // 回退
+				"build" // 打包
+			],
+			// 跳过问题
+			"skipQuestions": [],
+			// 自定义问题
+			"questions": {
+				"header": "输入header",
+				"scope": "本次更改的范围：(e.g. component or file name)",
+				"subject": "写一个简短的、命令式的变化描述",
+				"body": "提供一个较长的变化描述",
+				"isBreaking": "是否有任何突破性变化？",
+				"breakingBody": "一个BREAKING CHANGE的提交需要一个正文。请输入对该提交本身的较长描述",
+				"breaking": "描述突破性的变化",
+				"isIssueAffected": "这一变化是否影响到任何未解决的 issue？",
+				"issuesBody": "如果 issue 被关闭，提交需要一个正文。请输入对该提交本身的较长描述",
+				"issues": "添加 issue 引用 (e.g. 'fix #123','re #123'.)"
+			},
+			// default format: '{emoji} {scope} {subject}'. When true format: `{type}{scope}: {emoji} {subject}`
+			"conventional": false,
+			// 主题最大长度
+			"subjectMaxLength": 200,
+			"types": [
+				{
+					"description": "新功能、新特性",
+					"code": ":sparkles:",
+					"emoji": "✨",
+					"name": "feat"
+				},
+				{
+					"description": "修复Bug",
+					"code": ":bug:",
+					"emoji": "🐛",
+					"name": "fix"
+				},
+				{
+					"description": "文档变更",
+					"code": ":pencil:",
+					"emoji": "📝",
+					"name": "docs"
+				},
+				{
+					"description": "代码格式(不影响代码运行的变动)",
+					"code": ":art:",
+					"emoji": "🎨",
+					"name": "style"
+				},
+				{
+					"description": "重构(既不是增加feature，也不是修复bug)",
+					"code": ":recycle:",
+					"emoji": "♻️",
+					"name": "refactor"
+				},
+				{
+					"description": "性能优化",
+					"code": ":zap:",
+					"emoji": "⚡️",
+					"name": "perf"
+				},
+				{
+					"description": "增加测试或者修改现有测试",
+					"code": ":white_check_mark:",
+					"emoji": "✅",
+					"name": "test"
+				},
+				{
+					"description": "更改打包工具或者外部依赖项",
+					"code": ":construction_worker:",
+					"emoji": "👷",
+					"name": "build"
+				},
+				{
+					"description": "更改CI配置文件或者脚本",
+					"code": ":green_heart:",
+					"emoji": "💚",
+					"name": "ci"
+				},
+				{
+					"description": "回退上一个提交",
+					"code": ":rewind:",
+					"emoji": "⏪",
+					"name": "revert"
+				},
+				{
+					"emoji": "🔧",
+					"code": ":wrench:",
+					"description": "更改配置文件",
+					"name": "config"
+				},
+				{
+					"emoji": "🌐",
+					"code": ":globe_with_meridians:",
+					"description": "国际化",
+					"name": "i18n"
+				}
+			]
+		}
+	}
+}
