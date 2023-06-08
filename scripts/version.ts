@@ -3,7 +3,6 @@
  * 更新 package.json 和 src-tauri/tauri.config.json 中版本
  */
 import * as fs from 'fs'
-import { execSync } from 'child_process'
 import k from 'kleur'
 
 import { $argv, PACKAGE_PATH, TAURI_CONF_PATH, tauriConfJSON, packageJSON, relativePath } from './utils'
@@ -57,17 +56,8 @@ export default function version() {
 
 	const verChange = `(${k.yellow(oldVersion)} -> ${k.green(nextVersion)})`
 
-	if (argv.git) {
-		execSync(`git add ${relativePath(TAURI_CONF_PATH)} `)
-		execSync(`git commit -m "v${nextVersion}"`)
-		execSync(`git tag -a v${nextVersion} -m "v${nextVersion}"`)
-		execSync(`git push`)
-		execSync(`git push origin v${nextVersion}`)
-		console.log(k.green('[✨ release]'), `Published successfully ${verChange}`)
-	} else {
-		console.log(k.green('[✨ update version]'), `package.json version ${verChange}`)
-		console.log(k.green('[✨ update version]'), `tauri.conf.json version ${verChange}`)
-	}
+	console.log(k.green('[✨ update version]'), `package.json version ${verChange}`)
+	console.log(k.green('[✨ update version]'), `tauri.conf.json version ${verChange}`)
 }
 
 version()

@@ -1,3 +1,7 @@
+/**
+ * 生成更新 JSON 文件
+ * 文件格式：https://next--tauri.netlify.app/next/guides/distribution/updater#static-json-file
+ */
 import fs from 'fs'
 import path from 'path'
 import fetch from 'node-fetch'

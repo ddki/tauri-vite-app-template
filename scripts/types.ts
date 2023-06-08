@@ -19,8 +19,3 @@ export type UpdaterJSON = {
 		}
 	>
 }
-
-export type UpdaterLog = {
-	filename: string
-	content: string
-}
