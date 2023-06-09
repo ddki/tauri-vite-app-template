@@ -25,8 +25,7 @@
 		"commit": "git-cz",
 		"changelog": "conventional-changelog -p angular -i CHANGE_LOG.md -s -n changelog-config.cjs",
 		"version": "npx esmo scripts/version.ts --patch",
-		"semantic-release": "npx semantic-release --config .releaserc",
-		"release": "release-it"
+		"release": "npx release-it"
 	},
 	"dependencies": {
 		"pinia": "^2.0.32",
