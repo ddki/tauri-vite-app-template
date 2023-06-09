@@ -21,7 +21,10 @@ module.exports = {
 		// 读写版本
 		'@release-it/bumper': {
 			out: [
-				'package.json',
+				{
+					file: 'package.json',
+					path: 'version'
+				},
 				{
 					file: './src-tauri/tauri.conf.json',
 					path: 'package.version'
