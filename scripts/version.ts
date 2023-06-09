@@ -8,8 +8,8 @@ import k from 'kleur'
 import { $argv, PACKAGE_PATH, TAURI_CONF_PATH, tauriConfJSON, packageJSON, relativePath } from './utils'
 
 function printInfo() {
-	console.log(k.blue('ℹ️ package.json version = '), packageJSON().version)
-	console.log(k.blue('ℹ️ tauri.conf.json version = '), tauriConfJSON().package.version)
+	console.log(k.blue('ℹ  package.json version = '), packageJSON().version)
+	console.log(k.blue('ℹ  tauri.conf.json version = '), tauriConfJSON().package.version)
 }
 export default function version() {
 	printInfo()
