@@ -3,7 +3,7 @@ module.exports = {
 		allowSameVersion: true
 	},
 	hooks: {
-		'after:bump': 'pnpm format'
+		'after:bump': 'npx prettier --write {package,./src-tauri/tauri.conf}.json'
 	},
 	plugins: {
 		'@release-it/conventional-changelog': {
