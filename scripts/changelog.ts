@@ -5,7 +5,7 @@ import { relativePath, LOG_PATH } from './utils'
 
 export default function changelog(tag: string) {
 	/* eslint-disable */
-	const reTag = /## \[[\d\.]+\]/
+	const reTag = /## [\d\.]+/
 	/* eslint-disable */
 	const reVersion = /[\d\.]+/
 
@@ -37,8 +37,6 @@ export default function changelog(tag: string) {
 		}
 	})
 
-	console.log('tagMap == ', JSON.stringify(tagMap))
-
 	if (!tagMap?.[tag]) {
 		console.log(c.red('[💢 changelog]'), c.yellow(relativePath(filePath)), `Tag ${tag} does not exist.`)
 		process.exit(0)
@@ -50,4 +48,4 @@ export default function changelog(tag: string) {
 	}
 }
 
-console.log('log == ', changelog('1.0.1'))
+// console.log('log == ', changelog('1.0.1'))

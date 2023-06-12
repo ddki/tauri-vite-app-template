@@ -14,6 +14,7 @@ import type { Platform, UpdaterJSON } from './types'
 import changelog from './changelog'
 
 export default async function updater() {
+	console.log(c.red('[💢 updater starting...]'))
 	const argv = $argv()
 	let owner, repo
 
@@ -82,6 +83,8 @@ export default async function updater() {
 		}
 	}
 
+	console.log('updateData: ', JSON.stringify(updateData))
+
 	const setAsset = async (asset: any, reg: RegExp, platforms: Platform[]) => {
 		let sig = ''
 		if (/.sig$/.test(asset.name)) {
@@ -145,3 +148,5 @@ async function getSignature(url: string): Promise<any> {
 		return ''
 	}
 }
+
+updater()
