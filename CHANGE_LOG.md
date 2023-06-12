@@ -1,0 +1,43 @@
+# 📄 更新日志
+
+## 1.0.1 (2023-06-12)
+
+### 📦️ 构建相关 | Changes that affect the build system or external dependencies
+
+- **commitlint:** git changelog ([e4885d3](https://github.com/ddki/tauri-vite-app-template/commit/e4885d3ee83e3d2ee08b93a20aa2ac4cd4cdf691))
+- **commitlint:** verison init ([32bf2b9](https://github.com/ddki/tauri-vite-app-template/commit/32bf2b9b6376038f917bbf363a6957bd7ebc7b7d))
+
+### ✨ 新增功能 | A new feature
+
+- **commitlint :** gitmoji ([1074a98](https://github.com/ddki/tauri-vite-app-template/commit/1074a98aeca651b54bbd98020a27e276bf8c16bf))
+- **commitlint:** init ([dc9c62d](https://github.com/ddki/tauri-vite-app-template/commit/dc9c62de640bfe6b1d67c4d95d89ad1d5d4ccbb7))
+- **custom:** init ([f202663](https://github.com/ddki/tauri-vite-app-template/commit/f202663680de8a3bbe253ebfc7ada2ee2fd8cc31))
+- **custom:** init ([0afa160](https://github.com/ddki/tauri-vite-app-template/commit/0afa1605ab53ac2abb845feb4f17298d3da994d8))
+- **custom:** init ([b19caf2](https://github.com/ddki/tauri-vite-app-template/commit/b19caf28654b48870f6e2e3a4a391da8d13f45a3))
+- **custom:** init ([992d200](https://github.com/ddki/tauri-vite-app-template/commit/992d2001ecef13ab3dd4fe27d568ccd4efc9ffe9))
+- init ([6c143d3](https://github.com/ddki/tauri-vite-app-template/commit/6c143d36d7621bd8c55ad97d6d8659b6d5b525ec))
+- init ([ff3bf92](https://github.com/ddki/tauri-vite-app-template/commit/ff3bf923d041f6876c7c4cb39baa4c5bb0b6b257))
+- init ([5dc31e7](https://github.com/ddki/tauri-vite-app-template/commit/5dc31e7722efed069bbdeecd000455c3a2fa7c4a))
+- init ([00ec34e](https://github.com/ddki/tauri-vite-app-template/commit/00ec34efcf3e0fc0b2318b5763840abc19fbd10e))
+- init ([0f2815a](https://github.com/ddki/tauri-vite-app-template/commit/0f2815aacad205925197e5b6e7e30375832d1709))
+
+### 🔨 其他修改 | Other changes that do not modify src or test files
+
+- :hammer: use cz-git ([cc4ee54](https://github.com/ddki/tauri-vite-app-template/commit/cc4ee54605336086e66677fe4b4b144bd02ebdcc))
+
+### 💄 代码格式 | Changes that do not affect the meaning of the code
+
+- :lipstick: prettier format ([3e5669f](https://github.com/ddki/tauri-vite-app-template/commit/3e5669f08427cd77479e5d84ca92cf0d78861415))
+
+### 🎡 持续集成 | Changes to our CI configuration files and scripts
+
+- :ferris_wheel: add release-it ([0f64a53](https://github.com/ddki/tauri-vite-app-template/commit/0f64a533b653b17e5bc0eeb3ab283f463bcf1a6a))
+- :ferris_wheel: add release-it.json config ([0d26e9f](https://github.com/ddki/tauri-vite-app-template/commit/0d26e9f6f1132a6ec78a9d923a2376432ec6c6fd))
+- :ferris_wheel: after:bump script ([dc84e4c](https://github.com/ddki/tauri-vite-app-template/commit/dc84e4c12d931003f37fb8e7f1d13c3741ec55f9))
+- :ferris_wheel: modify release script ([b280d77](https://github.com/ddki/tauri-vite-app-template/commit/b280d779ffebd1c9ea7d1c4b93d01d5bad4f7939))
+- :ferris_wheel: modify release-it config ([de0d523](https://github.com/ddki/tauri-vite-app-template/commit/de0d5237ac21a96747fe00a8379b8a400acf18ea))
+- :ferris_wheel: modify release-it config ([52952a5](https://github.com/ddki/tauri-vite-app-template/commit/52952a56d0f41ede2744f20fc266623ee3f2c6a7))
+- :ferris_wheel: modify script ([efc6582](https://github.com/ddki/tauri-vite-app-template/commit/efc6582c1e619c10f8431dac489a44a6183923fa))
+- :ferris_wheel: release-it config ([1420f2b](https://github.com/ddki/tauri-vite-app-template/commit/1420f2beaa04a31c94dc85193823ae279b848922))
+- :ferris_wheel: release-it config and update script ([324b0b1](https://github.com/ddki/tauri-vite-app-template/commit/324b0b13979e8b201092961cd2a2ecbc0953f73d))
+- :ferris_wheel: release-it script ([091768b](https://github.com/ddki/tauri-vite-app-template/commit/091768ba83ed5c8802d3879dc090059ba305fc52))
