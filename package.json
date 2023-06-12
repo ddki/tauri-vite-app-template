@@ -23,9 +23,10 @@
 		"reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json && rimraf node_modules && pnpm install",
 		"publish": "node scripts/publish.ts",
 		"commit": "git-cz",
-		"changelog": "conventional-changelog -p angular -i CHANGE_LOG.md -s -n changelog-config.cjs",
+		"changelog": "conventional-changelog -p angular -i patch CHANGE_LOG.md -s -n changelog-config.cjs",
 		"version": "npx esmo scripts/version.ts --patch",
-		"release": "npx release-it --config .release-it.cjs"
+		"release": "npx release-it --config .release-it.cjs",
+		"script:changelog": "npx esmo scripts/changelog.ts"
 	},
 	"dependencies": {
 		"pinia": "^2.0.32",

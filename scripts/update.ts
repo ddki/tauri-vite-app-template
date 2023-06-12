@@ -11,7 +11,7 @@ import c from 'kleur'
 import { $argv, relativePath, ROOT_PATH, UPDATER_JSON_PATH } from './utils'
 import type { Platform, UpdaterJSON } from './types'
 
-import updatelog from './updatelog'
+import changelog from './changelog'
 
 export default async function updater() {
 	const argv = $argv()
@@ -56,7 +56,6 @@ export default async function updater() {
 	})
 
 	const tag = tags.find((t) => t.name.startsWith('v'))
-	// console.log(`${JSON.stringify(tag, null, 2)}`);
 
 	if (!tag) return
 
@@ -65,11 +64,11 @@ export default async function updater() {
 		tag: tag.name
 	})
 
-	const { content } = updatelog(tag.name)
+	const { content } = changelog(tag.name)
 
 	const updateData: UpdaterJSON = {
 		version: tag.name,
-		notes: content, // use UPDATE_LOG.md
+		notes: content,
 		pub_date: new Date().toISOString(),
 		platforms: {
 			win64: { signature: '', url: '' }, // compatible with older formats

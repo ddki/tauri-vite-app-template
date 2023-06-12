@@ -6,6 +6,9 @@
 	"hooks": {
 		"after:bumper": "pnpm format"
 	},
+	"git": {
+		"tagName": "v${version}"
+	},
 	"plugins": {
 		"@release-it/conventional-changelog": {
 			"writerOpts": {},

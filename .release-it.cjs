@@ -5,6 +5,9 @@ module.exports = {
 	hooks: {
 		'after:bump': 'npx prettier --write {package,./src-tauri/tauri.conf}.json'
 	},
+	git: {
+		tagName: 'v${version}'
+	},
 	plugins: {
 		'@release-it/conventional-changelog': {
 			writerOpts: {},
