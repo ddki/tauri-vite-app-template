@@ -11,7 +11,7 @@ module.exports = {
 			infile: 'CHANGE_LOG.md',
 			header: '# 📄 更新日志',
 			preset: {
-				name: 'angular',
+				name: 'conventionalcommits',
 				types: [
 					{
 						type: 'feat',
