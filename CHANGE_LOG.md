@@ -1,5 +1,14 @@
 # 📄 更新日志
 
+## [1.0.4](https://github.com/ddki/tauri-vite-app-demo/compare/v1.0.3...v1.0.4) (2023-06-13)
+
+### 🎡 持续集成 | Changes to our CI configuration files and scripts
+
+- :ferris_wheel: github action ([7a4d5ad](https://github.com/ddki/tauri-vite-app-demo/commit/7a4d5ad3090e693bbfd1017d0206ea12a297f1b3))
+- :ferris_wheel: github action ([e35ad94](https://github.com/ddki/tauri-vite-app-demo/commit/e35ad9445c32e5dd58a820bc61c44e129e2168d0))
+- :ferris_wheel: github action ([5ca5053](https://github.com/ddki/tauri-vite-app-demo/commit/5ca50534a2f6ddd855fa30ac10231ffe9d389f47))
+- :ferris_wheel: github action ([8123956](https://github.com/ddki/tauri-vite-app-demo/commit/81239569c6b8c462f974c6dc9cf9b22f37062af8))
+
 ## [1.0.3](https://github.com/ddki/tauri-vite-app-demo/compare/v1.0.1...v1.0.3) (2023-06-13)
 
 ### 🎡 持续集成 | Changes to our CI configuration files and scripts
