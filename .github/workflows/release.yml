@@ -36,7 +36,7 @@ jobs:
         with:
           owner: ${{ github.actor }}
           # 发布的可选标签。 如果省略，将使用 git ref （如果它是标签）。
-          tag: 'app-v ${{ env.app_version }}'
+          tag: 'v${{ env.app_version }}'
           name: '${{ env.app_name }} v${{ env.app_version }}'
           # 可选择将此版本标记为草稿版本。 设置为 true 以启用。
           draft: true,
