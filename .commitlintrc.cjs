@@ -14,6 +14,7 @@ module.exports = {
 		'subject-case': [0]
 	},
 	prompt: {
+		scopes: ['fonted', 'rust'],
 		alias: { fd: 'docs: fix typos' },
 		messages: {
 			type: '选择你要提交的类型 :',
