@@ -1,5 +1,7 @@
 # 📄 更新日志
 
+## [1.0.10](https://github.com/ddki/tauri-vite-app-template/compare/v1.0.9...v1.0.10) (2023-06-13)
+
 ## [1.0.9](https://github.com/ddki/tauri-vite-app-template/compare/v1.0.8...v1.0.9) (2023-06-13)
 
 ### 📦️ 构建相关 | Changes that affect the build system or external dependencies
