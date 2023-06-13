@@ -1,7 +1,8 @@
 import fs from 'fs'
 import c from 'kleur'
 
-import { relativePath, LOG_PATH } from './utils'
+import { $argv, relativePath, LOG_PATH, UPDATE_LOG_PATH, packageJSON } from './utils'
+import path from 'path'
 
 export default function changelog(tag: string) {
 	/* eslint-disable */
@@ -48,4 +49,26 @@ export default function changelog(tag: string) {
 	}
 }
 
-// console.log('log == ', changelog('1.0.1'))
+export function changelogs() {
+	const argv = $argv()
+	let versions
+	if (argv.version) {
+		argv.version.split(' ').forEach((v) => {
+			versions.push(v)
+		})
+	} else {
+		versions.push(packageJSON().version)
+	}
+	let content = ''
+	versions.forEach((v) => {
+		content += changelog(v)
+	})
+
+	const filename = UPDATE_LOG_PATH
+	if (!fs.existsSync(path.dirname(filename))) {
+		fs.mkdirSync(path.dirname(filename), { recursive: true })
+	}
+	fs.writeFileSync(filename, content)
+}
+
+changelogs()

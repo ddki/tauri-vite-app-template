@@ -41,7 +41,7 @@ jobs:
           # 可选择将此版本标记为草稿版本。 设置为 true 以启用。
           draft: true,
           # 发布的可选正文文件。 这应该是文件的路径。
-          bodyFile: 'CHANGE_LOG.md'
+          bodyFile: './updater/UPDATE_LOG.md'
 
   build-tauri:
     needs: create-release
@@ -63,7 +63,7 @@ jobs:
         if: matrix.platform == 'ubuntu-latest'
         run: |
           sudo apt-get update
-          sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.0-dev libappindicator3-dev librsvg2-dev patchelf
+          sudo apt-get install -y libgtk-3-dev libwebkit2gtk-4.0-dev libappindicator3-dev librsvg2-dev patchelf javascriptcoregtk-4.1 libsoup-3.0 webkit2gtk-4.1
 
       - name: setup node
         uses: actions/setup-node@v3
