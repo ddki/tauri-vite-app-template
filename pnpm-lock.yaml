@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -46,6 +46,9 @@ devDependencies:
   '@tauri-apps/cli':
     specifier: 2.0.0-alpha.9
     version: 2.0.0-alpha.9
+  '@tauri-apps/plugin-window':
+    specifier: 2.0.0-alpha.0
+    version: 2.0.0-alpha.0
   '@types/jsdom':
     specifier: ^21.1.0
     version: 21.1.0
@@ -1586,6 +1589,13 @@ packages:
       '@tauri-apps/cli-linux-x64-musl': 2.0.0-alpha.9
       '@tauri-apps/cli-win32-ia32-msvc': 2.0.0-alpha.9
       '@tauri-apps/cli-win32-x64-msvc': 2.0.0-alpha.9
+    dev: true
+
+  /@tauri-apps/plugin-window@2.0.0-alpha.0:
+    resolution:
+      { integrity: sha512-ZXFXOu9m8QiDB8d8LFFgwcfxIAbr0bhzj06YvmZDB3isuVtlFP9EyU4D+zmumWEWvNN2XP7xgpn68ivOVhmNNQ== }
+    dependencies:
+      '@tauri-apps/api': 2.0.0-alpha.4
     dev: true
 
   /@tootallnate/once@2.0.0:

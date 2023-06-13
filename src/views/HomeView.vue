@@ -42,7 +42,7 @@
 <script setup lang="ts">
 import { invoke } from '@tauri-apps/api'
 import { emit, listen } from '@tauri-apps/api/event'
-import { appWindow, WebviewWindow } from '@tauri-apps/api/window'
+import { appWindow, WebviewWindow } from '@tauri-apps/plugin-window'
 import { onMounted, reactive, ref } from 'vue'
 
 const state = reactive({
