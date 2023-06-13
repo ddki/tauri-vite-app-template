@@ -1,5 +1,11 @@
 # 📄 更新日志
 
+## [1.0.6](https://github.com/ddki/tauri-vite-app-demo/compare/v1.0.5...v1.0.6) (2023-06-13)
+
+### 🐛 修复缺陷 | A bug fix
+
+- :bug: tauri window plugin ([0090572](https://github.com/ddki/tauri-vite-app-demo/commit/00905724d6960a724773d28f53a3c2a95b322f76))
+
 ## [1.0.5](https://github.com/ddki/tauri-vite-app-demo/compare/v1.0.4...v1.0.5) (2023-06-13)
 
 ### 🎡 持续集成 | Changes to our CI configuration files and scripts
