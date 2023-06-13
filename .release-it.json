@@ -4,7 +4,7 @@
 		"allowSameVersion": true
 	},
 	"hooks": {
-		"after:bumper": "pnpm format"
+		"after:bumper": ["pnpm format", "pnpm run script:changelog"]
 	},
 	"git": {
 		"tagName": "v${version}"

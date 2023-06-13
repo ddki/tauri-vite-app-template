@@ -3,7 +3,7 @@ module.exports = {
 		allowSameVersion: true
 	},
 	hooks: {
-		'after:bump': 'npx prettier --write {package,./src-tauri/tauri.conf}.json'
+		'after:bump': ['npx prettier --write {package,./src-tauri/tauri.conf}.json', 'pnpm run script:changelog']
 	},
 	git: {
 		tagName: 'v${version}'

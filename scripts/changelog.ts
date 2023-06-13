@@ -6,7 +6,7 @@ import path from 'path'
 
 export default function changelog(tag: string) {
 	/* eslint-disable */
-	const reTag = /## [\d\.]+/
+	const reTag = /## \[[\d\.]+\]/
 	/* eslint-disable */
 	const reVersion = /[\d\.]+/
 
@@ -51,8 +51,8 @@ export default function changelog(tag: string) {
 
 export function changelogs() {
 	const argv = $argv()
-	let versions
-	if (argv.version) {
+	let versions = new Array()
+	if (argv.version && argv.version.length > 0) {
 		argv.version.split(' ').forEach((v) => {
 			versions.push(v)
 		})
@@ -61,7 +61,7 @@ export function changelogs() {
 	}
 	let content = ''
 	versions.forEach((v) => {
-		content += changelog(v)
+		content += changelog(v).content
 	})
 
 	const filename = UPDATE_LOG_PATH
