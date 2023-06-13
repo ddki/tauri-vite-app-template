@@ -1,5 +1,15 @@
 # 📄 更新日志
 
+## [1.0.9](https://github.com/ddki/tauri-vite-app-template/compare/v1.0.8...v1.0.9) (2023-06-13)
+
+### 📦️ 构建相关 | Changes that affect the build system or external dependencies
+
+- **fonted:** :package: commitlint ([e578f3f](https://github.com/ddki/tauri-vite-app-template/commit/e578f3f49d5dbfc1d25c7540b2a9c24ca363dddf))
+
+### 🐛 修复缺陷 | A bug fix
+
+- **rust:** :bug: remove unuse update ([983fd30](https://github.com/ddki/tauri-vite-app-template/commit/983fd308bfe6791c9c87ead1fdd7599752c592f4))
+
 ## [1.0.8](https://github.com/ddki/tauri-vite-app-template/compare/v1.0.7...v1.0.8) (2023-06-13)
 
 ### 🎡 持续集成 | Changes to our CI configuration files and scripts
