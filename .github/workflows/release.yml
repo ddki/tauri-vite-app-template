@@ -40,7 +40,7 @@ jobs:
           # 可选择将此版本标记为草稿版本。 设置为 true 以启用。
           draft: true,
           # 发布的可选正文文件。 这应该是文件的路径。
-          bodyFile: 'UPDATE_LOG.md'
+          bodyFile: 'CHANGE_LOG.md'
 
   build-tauri:
     needs: create-release
