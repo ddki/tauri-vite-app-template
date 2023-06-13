@@ -50,6 +50,7 @@ export default function changelog(tag: string) {
 }
 
 export function changelogs() {
+	console.log(c.green('😀 generate update log starting...'))
 	const argv = $argv()
 	let versions = new Array()
 	if (argv.version && argv.version.length > 0) {
@@ -68,7 +69,9 @@ export function changelogs() {
 	if (!fs.existsSync(path.dirname(filename))) {
 		fs.mkdirSync(path.dirname(filename), { recursive: true })
 	}
+	console.log(c.blue('UPDATE_LOG.me conten is : \n'), content)
 	fs.writeFileSync(filename, content)
+	console.log(c.green('😀 generate update log finished!'))
 }
 
 changelogs()
