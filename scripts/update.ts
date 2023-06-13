@@ -1,5 +1,5 @@
 /**
- * 生成更新 JSON 文件
+ * 在GitHub action 中生成更新 JSON 文件
  * 文件格式：https://next--tauri.netlify.app/next/guides/distribution/updater#static-json-file
  */
 import fs from 'fs'
