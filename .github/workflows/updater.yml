@@ -45,6 +45,8 @@ jobs:
         run: pnpm install
 
       - name: Release updater file
-        run: pnpm run script:update
+        run: pnpm run script:update --owner=$OWNER --repo= --token=$GITHUB_TOKEN
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OWNER: ${{ github.actor }}
+          REPO: ${{ github.repository_name }}
