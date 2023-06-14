@@ -49,4 +49,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OWNER: ${{ github.actor }}
-          REPO: ${{ github.repository_name }}
+          REPO: ${{ github.event.repository.name }}
