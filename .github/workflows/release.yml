@@ -12,7 +12,7 @@ jobs:
       contents: write
     runs-on: ubuntu-latest
     outputs:
-      release_id: ${{ steps.create-release.outputs.result.id }}
+      release_id: ${{ steps.create-release.outputs.id }}
 
     steps:
       - uses: actions/checkout@v3
@@ -70,6 +70,11 @@ jobs:
           draft: true,
           # 发布的可选正文文件。 这应该是文件的路径。
           bodyFile: './updater/UPDATE_LOG.md'
+
+			- name: echo create-release outputs
+				run: echo ${{ steps.create-release.outputs }}
+			- name: echo create-release outputs.id
+				run: echo ${{ steps.create-release.outputs.id }}
 
   build-tauri:
     needs: create-release
