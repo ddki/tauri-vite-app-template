@@ -12,7 +12,7 @@ jobs:
       contents: write
     runs-on: ubuntu-latest
     outputs:
-      release_id: ${{ steps.create-release.outputs.result }}
+      release_id: ${{ steps.create-release.outputs.result.id }}
 
     steps:
       - uses: actions/checkout@v3
@@ -71,9 +71,6 @@ jobs:
           # 发布的可选正文文件。 这应该是文件的路径。
           bodyFile: './updater/UPDATE_LOG.md'
 
-      - name: Save release ID
-        run: echo "release_id=${{ steps.create-release.outputs.id }}" >> $GITHUB_ENV
-
   build-tauri:
     needs: create-release
     permissions:
@@ -85,6 +82,9 @@ jobs:
 
     runs-on: ${{ matrix.platform }}
     steps:
+      - name: echo release_id
+        run: echo "release_id = ${{ needs.create-release.outputs.release_id }}" ${{ needs.create-release.outputs.release_id }}
+
       - uses: actions/checkout@v3
 
       - name: install Rust stable
@@ -132,7 +132,7 @@ jobs:
           TAURI_PRIVATE_KEY: ${{ secrets.TAURI_PRIVATE_KEY }}
           TAURI_KEY_PASSWORD: ''
         with:
-          releaseId: ${{ env.release_id }}
+          releaseId: ${{ needs.create-release.outputs.release_id }}
           updaterJsonPreferNsis: true
 
   publish-release:
@@ -143,13 +143,12 @@ jobs:
 
     steps:
       - name: echo release_id
-        run: echo "release_id = ${{ env.release_id }}" ${{ env.release_id }}
-
+        run: echo "release_id = ${{ needs.create-release.outputs.release_id }}" ${{ needs.create-release.outputs.release_id }}
       - name: publish release
         id: publish-release
         uses: actions/github-script@v6
         env:
-          release_id: ${{ env.release_id }}
+          release_id: ${{ needs.create-release.outputs.release_id }}
         with:
           script: |
             github.rest.repos.updateRelease({
