@@ -71,10 +71,10 @@ jobs:
           # 发布的可选正文文件。 这应该是文件的路径。
           bodyFile: './updater/UPDATE_LOG.md'
 
-			- name: echo create-release outputs
-				run: echo ${{ steps.create-release.outputs }}
-			- name: echo create-release outputs.id
-				run: echo ${{ steps.create-release.outputs.id }}
+      - name: echo create-release outputs
+        run: echo ${{ steps.create-release.outputs }}
+      - name: echo create-release outputs.id
+        run: echo ${{ steps.create-release.outputs.id }}
 
   build-tauri:
     needs: create-release
