@@ -139,6 +139,8 @@ jobs:
     needs: [create-release, build-tauri]
 
     steps:
+      - name: echo release_id
+        run: echo "release_id = ${{ needs.create-release.outputs.id }}" ${{ needs.create-release.outputs.id }}
       - name: publish release
         id: publish-release
         uses: actions/github-script@v6
