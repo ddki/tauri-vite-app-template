@@ -37,7 +37,7 @@
 				"digestAlgorithm": "sha256",
 				"timestampUrl": "",
 				"wix": {
-					"language": ["zh-CN", "en-US"]
+					"language": ["zh-CN"]
 				}
 			},
 			"updater": {
