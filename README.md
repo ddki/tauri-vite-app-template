@@ -1,6 +1,8 @@
 # tauri-vite-app-demo
 
-This template should help get you started developing with Vue 3 in Vite.
+这是一个 [tauri2](https://next--tauri.netlify.app/) + [vite](https://vitejs.dev/) + [vue3](https://vuejs.org/) + [typescript](https://www.typescriptlang.org/)` 的模板项目。
+
+集成了 [cz-git](https://cz-git.qbb.sh) 管理 git 提交、[release-it](https://github.com/release-it/release-it) 管理发布版本、[commitlint](https://github.com/conventional-changelog/commitlint) 验证提交信息合规性、[conventional-changelog](https://github.com/conventional-changelog/conventional-changelog) 生成变更日志、[husky](https://github.com/husky/husky) 管理 git hooks 等工具。
 
 ## Recommended IDE Setup
 
@@ -68,4 +70,49 @@ pnpm test:e2e --debug
 
 ```sh
 pnpm lint
+```
+
+### Prettier with [Prettier](https://prettier.io/)
+
+```sh
+pnpm format
+```
+
+### Tauri Script
+
+#### start dev
+
+```sh
+pnpm tauri:dev
+```
+
+#### build
+
+```sh
+pnpm tauri:build
+```
+
+### Generate changelog file
+
+```sh
+pnpm changelog
+```
+
+### Generate Release
+
+```sh
+pnpm release
+```
+
+## Tauri updater with [Tauri](https://next--tauri.netlify.app/next/guides/distribution/updater)
+
+### :ferris_wheel: Setting for Github
+
+1. Project -> Settings
+2. Security -> Secrets and Variables -> Actions
+3. Secrets -> new repository secret
+
+```sh
+TAURI_KEY_PASSWORD="your password"
+TAURI_PRIVATE_KEY="your private key"
 ```

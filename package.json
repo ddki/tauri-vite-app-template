@@ -24,8 +24,7 @@
 		"changelog": "conventional-changelog -p angular -i CHANGE_LOG.md -s -n changelog-config.cjs",
 		"release": "npx release-it --increment patch --config .release-it.cjs",
 		"script:changelog": "npx esmo scripts/changelog.ts --version ",
-		"script:update": "npx esmo scripts/update.ts",
-		"script:test": "npx esmo scripts/test.ts"
+		"script:update": "npx esmo scripts/update.ts"
 	},
 	"dependencies": {
 		"pinia": "^2.0.32",
